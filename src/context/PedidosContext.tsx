@@ -37,6 +37,7 @@ export function PedidosProvider({
   if (!estado) return null;
 
   function agregarPedido(pedido: Pedido): boolean {
+    if (!estado) return false;
     const nuevos = [...estado.pedidos, pedido];
     const ok = guardarPedidos(nuevos);
     if (ok) setEstado({ ...estado, pedidos: nuevos });
