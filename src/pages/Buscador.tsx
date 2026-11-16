@@ -28,9 +28,11 @@ export function Buscador() {
     setParams(next, { replace: true });
   }
 
+  // Selección única: clickear un área la deja como la única activa; volver a
+  // clickear la misma área la suelta y muestra todas de nuevo.
   function alternarArea(id: AreaId) {
     const activa = areasActivas.includes(id);
-    const nuevas = activa ? areasActivas.filter((a) => a !== id) : [...areasActivas, id];
+    const nuevas = activa ? [] : [id];
     actualizar(texto, nuevas);
   }
 
@@ -41,9 +43,6 @@ export function Buscador() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-10">
       <header className="mb-6 text-center">
-        <p className="text-xs font-semibold tracking-wide text-[var(--color-gris)] uppercase">
-          Estudio Bellocq Arrizabalaga
-        </p>
         <h1 className="mt-1 text-2xl font-semibold sm:text-3xl">Contanos qué te pasa, con tus palabras</h1>
         <p className="mt-2 text-sm text-[var(--color-gris)]">
           No hace falta que sepas de derecho. Escribí lo que te pasó y te mostramos el trámite que corresponde.

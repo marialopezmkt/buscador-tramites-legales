@@ -106,11 +106,11 @@ export function Pedido() {
             Pedido recibido
           </h1>
           <p className="mt-3 text-[var(--color-casi-negro)]">
-            Apartamos un lugar para tu primera consulta ({PRIMERA_CONSULTA.duracion}, {PRIMERA_CONSULTA.precio}),
-            dentro de la franja de {area.nombre.toLowerCase()}: {area.franja.toLowerCase()}.
+            Apartamos un lugar para tu primera consulta ({PRIMERA_CONSULTA.duracion}, {PRIMERA_CONSULTA.precio})
+            dentro de la franja de {area.nombre.toLowerCase()} ({area.franja.toLowerCase()}).
           </p>
           <p className="mt-2 text-sm text-[var(--color-gris)]">
-            Vamos a escribirte a {confirmado.correo} para coordinar el día y la hora.
+            Te escribimos a {confirmado.correo} para confirmar el horario dentro de esa franja.
           </p>
           <p className="mt-1 text-xs text-[var(--color-gris)]">Número de pedido: {confirmado.id}</p>
           <Link
