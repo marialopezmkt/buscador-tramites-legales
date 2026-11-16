@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export function Encabezado() {
   return (
     <div className="sticky top-0 z-20 border-b border-[var(--color-tinta)]/10 bg-[var(--color-crema)]/95 backdrop-blur">
-      <div className="mx-auto max-w-2xl px-4 py-2.5">
+      <div className="mx-auto max-w-2xl px-4 py-2.5 text-center">
         <Link
           to="/"
           className="text-xs font-semibold tracking-wide text-[var(--color-tinta)] uppercase hover:underline"
