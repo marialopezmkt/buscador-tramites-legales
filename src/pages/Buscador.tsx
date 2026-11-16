@@ -50,14 +50,40 @@ export function Buscador() {
       </header>
 
       <div className="sticky top-0 z-10 -mx-4 bg-[var(--color-crema)]/95 px-4 pb-3 backdrop-blur sm:static sm:mx-0 sm:bg-transparent sm:px-0 sm:backdrop-blur-none">
-        <input
-          type="text"
-          value={texto}
-          onChange={(e) => actualizar(e.target.value, areasActivas)}
-          placeholder={`Por ejemplo: "${EJEMPLOS[0]}"`}
-          aria-label="Buscar trámite"
-          className="w-full rounded-xl border border-[var(--color-tinta)]/20 bg-white px-4 py-3 text-base text-[var(--color-casi-negro)] shadow-sm outline-none focus:border-[var(--color-tinta)]"
-        />
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => actualizar(texto, areasActivas)}
+            aria-label="Buscar"
+            tabIndex={-1}
+            className="absolute inset-y-0 left-0 flex items-center pl-3.5 text-[var(--color-gris)]"
+          >
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4.5 w-4.5">
+              <circle cx="9" cy="9" r="6.25" />
+              <path d="M17 17l-3.8-3.8" strokeLinecap="round" />
+            </svg>
+          </button>
+          <input
+            type="text"
+            value={texto}
+            onChange={(e) => actualizar(e.target.value, areasActivas)}
+            placeholder={`Por ejemplo: "${EJEMPLOS[0]}"`}
+            aria-label="Buscar trámite"
+            className="w-full rounded-xl border border-[var(--color-tinta)]/20 bg-white py-3 pl-10 pr-10 text-base text-[var(--color-casi-negro)] shadow-sm outline-none focus:border-[var(--color-tinta)]"
+          />
+          {texto && (
+            <button
+              type="button"
+              onClick={() => actualizar("", areasActivas)}
+              aria-label="Borrar búsqueda"
+              className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-[var(--color-gris)] hover:text-[var(--color-tinta)]"
+            >
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4.5 w-4.5">
+                <path d="M5 5l10 10M15 5L5 15" strokeLinecap="round" />
+              </svg>
+            </button>
+          )}
+        </div>
 
         <div className="mt-3 flex flex-wrap gap-2">
           {AREAS.map((area) => (
