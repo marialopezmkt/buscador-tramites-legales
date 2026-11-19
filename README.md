@@ -115,6 +115,39 @@ recorrer un pedido de punta a punta hay que usar Familia o Sucesiones y
 vivienda, o simular una semana nueva (punto 7), que devuelve los lugares de
 Laboral al tope.
 
+## Dónde está cada cosa
+
+```
+app/
+├─ index.html                     Título, idioma y punto de entrada
+├─ src/
+│  ├─ main.tsx                    Arranque de React y del router (HashRouter)
+│  ├─ App.tsx                     Las tres rutas de la app
+│  ├─ index.css                   Paleta, tipografías y estilos base
+│  ├─ pages/                      Una pantalla por archivo
+│  │  ├─ Buscador.tsx             Pantalla principal: búsqueda y chips por área
+│  │  ├─ Ficha.tsx                Detalle de un trámite
+│  │  └─ Pedido.tsx               Formulario de primera consulta y confirmación
+│  ├─ components/                 Piezas reutilizables: encabezado, tarjeta,
+│  │                              chip de área, etiqueta de lugares, aviso legal
+│  ├─ context/PedidosContext.tsx  Estado compartido de pedidos y lugares
+│  ├─ lib/eba/                    Toda la lógica, sin nada de interfaz
+│  │  ├─ catalogo.ts              Los 10 trámites, áreas, topes y franjas
+│  │  ├─ busqueda.ts              Búsqueda sin tildes ni mayúsculas
+│  │  ├─ lugares.ts               Lugares que quedan y etiqueta que corresponde
+│  │  ├─ pedidos.ts               Alta de pedidos y control de duplicados
+│  │  ├─ validacion.ts            Validación de nombre, correo y teléfono
+│  │  ├─ semana.ts                Número de semana ISO
+│  │  ├─ semilla.ts               Datos de ejemplo precargados
+│  │  └─ almacen.ts               Lectura y escritura en localStorage
+│  └─ test/                       Pruebas automáticas (Vitest)
+└─ .github/workflows/deploy.yml   Publicación automática en GitHub Pages
+```
+
+Las tres pantallas están cableadas entre sí: el buscador lleva a la ficha del
+trámite, y la ficha al formulario de primera consulta. El encabezado vuelve al
+buscador desde cualquier pantalla.
+
 ## Stack
 
 React + TypeScript + Vite + Tailwind CSS v4, con React Router (`HashRouter`,
